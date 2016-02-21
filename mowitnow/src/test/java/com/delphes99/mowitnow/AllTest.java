@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ GardenTest.class, DirectionTest.class, MowerPositionTest.class })
+@SuiteClasses({ GardenTest.class, DirectionTest.class, MowerPositionTest.class, MowerTest.class })
 public class AllTest {
 
 }
