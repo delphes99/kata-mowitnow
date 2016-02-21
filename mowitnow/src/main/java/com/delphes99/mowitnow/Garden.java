@@ -1,6 +1,8 @@
 package com.delphes99.mowitnow;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import com.delphes99.mowitnow.Exception.GardenDimensionException;
@@ -10,7 +12,7 @@ public class Garden {
 
 	private int height;
 
-	private Queue<Mower> mowerQueue;
+	private Queue<IMower> mowerQueue;
 
 	public Garden(int width, int height) throws GardenDimensionException {
 		checkDimension(width, height);
@@ -18,7 +20,7 @@ public class Garden {
 		this.width = width;
 		this.height = height;
 
-		this.mowerQueue = new LinkedList<Mower>();
+		this.mowerQueue = new LinkedList<IMower>();
 	}
 
 	private void checkDimension(int width, int height) throws GardenDimensionException {
@@ -48,11 +50,20 @@ public class Garden {
 		return height;
 	}
 
-	public void addMower(Mower mower) {
+	public void addMower(IMower mower) {
 		this.mowerQueue.add(mower);
 	}
 
-	public Queue<Mower> getMowerQueue() {
+	public Queue<IMower> getMowerQueue() {
 		return mowerQueue;
+	}
+
+	public String activateAllMowers() {
+		List<String> allPositions = new ArrayList<>();
+		for (IMower mower : this.getMowerQueue()) {
+			allPositions.add(mower.runAll());
+		}
+
+		return String.join("\n", allPositions);
 	}
 }

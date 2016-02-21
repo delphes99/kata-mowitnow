@@ -45,4 +45,9 @@ public enum Direction {
 		}
 		return null;
 	}
+
+	@Override
+	public String toString() {
+		return this.id;
+	}
 }

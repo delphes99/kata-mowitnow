@@ -56,25 +56,39 @@ public class Mower implements IMower {
 		return new Coordinate(x, y);
 	}
 
+	@Override
 	public void addAction(IMowerAction action) {
 		this.queueAction.add(action);
 	}
 
+	@Override
 	public int getActionQueueSize() {
 		return this.queueAction.size();
 	}
 
-	public void runOne() {
+	@Override
+	public String runOne() {
 		IMowerAction action = this.queueAction.poll();
 		if (action != null) {
 			action.execute(this);
 		}
+
+		return this.toString();
 	}
 
-	public void runAll() {
+	@Override
+	public String runAll() {
 		while (!this.queueAction.isEmpty()) {
 			this.runOne();
 		}
+
+		return this.toString();
+	}
+
+	@Override
+	public String toString() {
+		Coordinate coordinates = position.getCoordinates();
+		return coordinates.getX() + " " + coordinates.getX() + " " + position.getDirection().toString();
 	}
 
 	public MowerPosition getPosition() {

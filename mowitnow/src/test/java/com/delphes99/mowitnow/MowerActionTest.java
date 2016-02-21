@@ -66,7 +66,7 @@ public class MowerActionTest {
 	}
 
 	/* Mower Mock */
-	private class MockMower implements IMower {
+	private class MockMower extends EmptyMowerMock {
 		boolean isTurningLeft = false;
 		boolean isTurningRight = false;
 		boolean isAdvancing = false;
