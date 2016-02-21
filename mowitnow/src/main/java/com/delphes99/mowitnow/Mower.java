@@ -10,4 +10,12 @@ public class Mower {
 	public MowerPosition getPosition() {
 		return position;
 	}
+
+	public void turnLeft() {
+		position.setDirection(position.getDirection().getLeft());
+	}
+
+	public void turnRight() {
+		position.setDirection(position.getDirection().getRight());
+	}
 }

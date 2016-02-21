@@ -19,4 +19,60 @@ public class MowerTest {
 		assertEquals(1, mower.getPosition().getY());
 		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
 	}
+
+	@Test
+	public void should_west_when_north_and_turn_left() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.NORTH);
+		mower.turnLeft();
+		assertEquals(Direction.WEST, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_north_when_east_and_turn_left() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.EAST);
+		mower.turnLeft();
+		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_east_when_south_and_turn_left() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.SOUTH);
+		mower.turnLeft();
+		assertEquals(Direction.EAST, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_south_when_west_and_turn_left() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.WEST);
+		mower.turnLeft();
+		assertEquals(Direction.SOUTH, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_east_when_north_and_turn_right() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.NORTH);
+		mower.turnRight();
+		assertEquals(Direction.EAST, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_south_when_east_and_turn_right() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.EAST);
+		mower.turnRight();
+		assertEquals(Direction.SOUTH, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_west_when_south_and_turn_right() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.SOUTH);
+		mower.turnRight();
+		assertEquals(Direction.WEST, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_north_when_west_and_turn_right() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.WEST);
+		mower.turnRight();
+		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
+	}
 }
