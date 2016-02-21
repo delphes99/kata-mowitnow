@@ -6,6 +6,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.delphes99.mowitnow.core.Garden;
+
 public class GardenProgrammTest {
 	private Garden garden;
 
@@ -35,7 +37,7 @@ public class GardenProgrammTest {
 		assertEquals("1\n2", allPositions);
 	}
 
-	/* Mower mock */
+	/***************************** Mower mock *****************************/
 	private class AutomaticMowerMock extends EmptyMowerMock {
 		private boolean isRunAll = false;
 		private String id;

@@ -5,12 +5,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.delphes99.mowitnow.Exception.IllegalMowerActionException;
 import com.delphes99.mowitnow.action.AdvanceAction;
 import com.delphes99.mowitnow.action.IMowerAction;
 import com.delphes99.mowitnow.action.MowerActionFactory;
 import com.delphes99.mowitnow.action.TurnLeftAction;
 import com.delphes99.mowitnow.action.TurnRightAction;
+import com.delphes99.mowitnow.exception.IllegalMowerActionException;
 
 public class MowerActionTest {
 	private MockMower mower;
@@ -20,7 +20,7 @@ public class MowerActionTest {
 		mower = new MockMower();
 	}
 
-	/* Factory */
+	/***************************** Factory *****************************/
 	@Test
 	public void should_get_turn_left_action_when_G() throws Exception {
 		assertTrue(MowerActionFactory.getMowerAction("G") instanceof TurnLeftAction);
@@ -41,6 +41,7 @@ public class MowerActionTest {
 		MowerActionFactory.getMowerAction("X");
 	}
 
+	/***************************** Action *****************************/
 	@Test
 	public void should_mower_turn_left_when_G_command() throws Exception {
 		IMowerAction actionTurnLeft = MowerActionFactory.getMowerAction("G");
@@ -65,7 +66,7 @@ public class MowerActionTest {
 		assertTrue(mower.isAdvancing);
 	}
 
-	/* Mower Mock */
+	/***************************** Mower mock *****************************/
 	private class MockMower extends EmptyMowerMock {
 		boolean isTurningLeft = false;
 		boolean isTurningRight = false;

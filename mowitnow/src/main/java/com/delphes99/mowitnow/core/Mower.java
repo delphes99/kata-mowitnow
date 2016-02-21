@@ -1,10 +1,10 @@
-package com.delphes99.mowitnow;
+package com.delphes99.mowitnow.core;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.delphes99.mowitnow.Exception.MowerIllegalPositionException;
 import com.delphes99.mowitnow.action.IMowerAction;
+import com.delphes99.mowitnow.exception.MowerIllegalPositionException;
 
 public class Mower implements IMower {
 	private Garden garden;

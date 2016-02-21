@@ -1,4 +1,4 @@
-package com.delphes99.mowitnow;
+package com.delphes99.mowitnow.core;
 
 import com.delphes99.mowitnow.action.IMowerAction;
 

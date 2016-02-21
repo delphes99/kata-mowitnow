@@ -6,6 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.delphes99.mowitnow.action.IMowerAction;
+import com.delphes99.mowitnow.core.Direction;
+import com.delphes99.mowitnow.core.Garden;
+import com.delphes99.mowitnow.core.IMower;
+import com.delphes99.mowitnow.core.Mower;
 
 public class MowerProgrammTest {
 	private IMower mower;
@@ -24,7 +28,7 @@ public class MowerProgrammTest {
 		assertEquals(1, mower.getActionQueueSize());
 	}
 
-	/* Run one */
+	/***************************** Run one *****************************/
 	@Test
 	public void should_do_nothing_when_run_one_with_no_action() throws Exception {
 		assertEquals(0, mower.getActionQueueSize());
@@ -64,7 +68,8 @@ public class MowerProgrammTest {
 		assertEquals("1", execution.toString());
 	}
 
-	/* Run all */@Test
+	/***************************** Run all *****************************/
+	@Test
 	public void should_do_nothing_when_run_all_with_no_action() throws Exception {
 		assertEquals(0, mower.getActionQueueSize());
 		mower.runAll();
@@ -107,7 +112,7 @@ public class MowerProgrammTest {
 		assertEquals("2 2 N", position);
 	}
 
-	/* Action mock */
+	/***************************** Action mocks *****************************/
 	private class MowerActionMock implements IMowerAction {
 		private String id;
 		private StringBuilder excecution;

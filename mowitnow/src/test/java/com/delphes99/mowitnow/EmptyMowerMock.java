@@ -1,6 +1,8 @@
 package com.delphes99.mowitnow;
 
 import com.delphes99.mowitnow.action.IMowerAction;
+import com.delphes99.mowitnow.core.IMower;
+import com.delphes99.mowitnow.core.MowerPosition;
 
 public class EmptyMowerMock implements IMower {
 	@Override

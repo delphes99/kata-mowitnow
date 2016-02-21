@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.delphes99.mowitnow.Exception.GardenDimensionException;
+import com.delphes99.mowitnow.core.Direction;
+import com.delphes99.mowitnow.core.Garden;
+import com.delphes99.mowitnow.core.Mower;
+import com.delphes99.mowitnow.exception.GardenDimensionException;
 
 public class GardenTest {
 	@Test
@@ -27,13 +30,13 @@ public class GardenTest {
 	@Test
 	public void should_not_have_mower_when_new_garden() throws Exception {
 		Garden garden = new Garden(4, 4);
-		assertEquals(garden.getMowerQueue().size(), 0);
+		assertEquals(garden.getNumberOfMowers(), 0);
 	}
 
 	@Test
 	public void should_1_mower_when_adding_mower() throws Exception {
 		Garden garden = new Garden(4, 4);
 		garden.addMower(new Mower(garden, 0, 0, Direction.NORTH));
-		assertEquals(garden.getMowerQueue().size(), 1);
+		assertEquals(garden.getNumberOfMowers(), 1);
 	}
 }

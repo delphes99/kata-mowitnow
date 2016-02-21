@@ -5,8 +5,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.delphes99.mowitnow.Exception.GardenDimensionException;
-import com.delphes99.mowitnow.Exception.MowerIllegalPositionException;
+import com.delphes99.mowitnow.core.Direction;
+import com.delphes99.mowitnow.core.Garden;
+import com.delphes99.mowitnow.core.Mower;
+import com.delphes99.mowitnow.exception.GardenDimensionException;
+import com.delphes99.mowitnow.exception.MowerIllegalPositionException;
 
 public class MowerTest {
 	private static final Garden DEFAULT_GARDEN;
@@ -33,7 +36,7 @@ public class MowerTest {
 		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
 	}
 
-	/* Out of garden */
+	/***************************** out of garden *****************************/
 	@Test(expected = MowerIllegalPositionException.class)
 	public void should_throw_exception_when_mower_out_of_bound_north() throws Exception {
 		new Mower(DEFAULT_GARDEN, 0, 6, Direction.NORTH);
@@ -54,7 +57,7 @@ public class MowerTest {
 		new Mower(DEFAULT_GARDEN, -1, 0, Direction.NORTH);
 	}
 
-	/* Turn left */
+	/***************************** Turn left *****************************/
 	@Test
 	public void should_west_when_north_and_turn_left() throws Exception {
 		Mower mower = new Mower(DEFAULT_GARDEN, 0, 0, Direction.NORTH);
@@ -83,7 +86,7 @@ public class MowerTest {
 		assertEquals(Direction.SOUTH, mower.getPosition().getDirection());
 	}
 
-	/* Turn right */
+	/***************************** Turn right *****************************/
 	@Test
 	public void should_east_when_north_and_turn_right() throws Exception {
 		Mower mower = new Mower(DEFAULT_GARDEN, 0, 0, Direction.NORTH);
@@ -112,7 +115,7 @@ public class MowerTest {
 		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
 	}
 
-	/* Advance */
+	/***************************** Advance *****************************/
 	@Test
 	public void should_y_increase_when_advance_north() throws Exception {
 		Mower mower = new Mower(DEFAULT_GARDEN, 0, 0, Direction.NORTH);
@@ -149,8 +152,7 @@ public class MowerTest {
 		assertEquals(Direction.WEST, mower.getPosition().getDirection());
 	}
 
-	/* Advance in the edge of the garden */
-
+	/**************** Advance in the edge of the garden ****************/
 	@Test
 	public void should_not_y_increase_when_advance_north_in_the_edge() throws Exception {
 		Mower mower = new Mower(DEFAULT_GARDEN, 0, 5, Direction.NORTH);

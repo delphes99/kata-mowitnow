@@ -1,6 +1,6 @@
 package com.delphes99.mowitnow.action;
 
-import com.delphes99.mowitnow.IMower;
+import com.delphes99.mowitnow.core.IMower;
 
 public class AdvanceAction implements IMowerAction {
 	protected AdvanceAction() {

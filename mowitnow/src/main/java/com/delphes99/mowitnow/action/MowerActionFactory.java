@@ -1,6 +1,6 @@
 package com.delphes99.mowitnow.action;
 
-import com.delphes99.mowitnow.Exception.IllegalMowerActionException;
+import com.delphes99.mowitnow.exception.IllegalMowerActionException;
 
 public class MowerActionFactory {
 	public static IMowerAction getMowerAction(String commandAction) throws IllegalMowerActionException {

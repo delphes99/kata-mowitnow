@@ -1,4 +1,4 @@
-package com.delphes99.mowitnow;
+package com.delphes99.mowitnow.core;
 
 public class MowerPosition {
 	private Coordinate coordinates;

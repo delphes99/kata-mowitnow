@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.delphes99.mowitnow.core.Direction;
+import com.delphes99.mowitnow.core.MowerPosition;
+
 public class MowerPositionTest {
 	@Test
 	public void should_get_attribute_when_new_position() throws Exception {
