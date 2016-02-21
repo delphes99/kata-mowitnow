@@ -18,4 +18,15 @@ public class Mower {
 	public void turnRight() {
 		position.setDirection(position.getDirection().getRight());
 	}
+
+	public void advance() {
+		int x = position.getX();
+		int y = position.getY();
+		Direction direction = position.getDirection();
+		x += direction.getHorizontalDisplacement();
+		y += direction.getVerticalDisplacement();
+
+		position.setX(x);
+		position.setY(y);
+	}
 }

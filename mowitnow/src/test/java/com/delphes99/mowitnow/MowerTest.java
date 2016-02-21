@@ -20,6 +20,7 @@ public class MowerTest {
 		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
 	}
 
+	/* Turn left */
 	@Test
 	public void should_west_when_north_and_turn_left() throws Exception {
 		Mower mower = new Mower(0, 0, Direction.NORTH);
@@ -48,6 +49,7 @@ public class MowerTest {
 		assertEquals(Direction.SOUTH, mower.getPosition().getDirection());
 	}
 
+	/* Turn right */
 	@Test
 	public void should_east_when_north_and_turn_right() throws Exception {
 		Mower mower = new Mower(0, 0, Direction.NORTH);
@@ -74,5 +76,42 @@ public class MowerTest {
 		Mower mower = new Mower(0, 0, Direction.WEST);
 		mower.turnRight();
 		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
+	}
+
+	/* Advance */
+	@Test
+	public void should_y_increase_when_advance_north() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.NORTH);
+		mower.advance();
+		assertEquals(0, mower.getPosition().getX());
+		assertEquals(1, mower.getPosition().getY());
+		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_x_increase_when_advance_east() throws Exception {
+		Mower mower = new Mower(0, 0, Direction.EAST);
+		mower.advance();
+		assertEquals(1, mower.getPosition().getX());
+		assertEquals(0, mower.getPosition().getY());
+		assertEquals(Direction.EAST, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_y_decrease_when_advance_south() throws Exception {
+		Mower mower = new Mower(1, 1, Direction.SOUTH);
+		mower.advance();
+		assertEquals(1, mower.getPosition().getX());
+		assertEquals(0, mower.getPosition().getY());
+		assertEquals(Direction.SOUTH, mower.getPosition().getDirection());
+	}
+
+	@Test
+	public void should_x_decrease_when_advance_west() throws Exception {
+		Mower mower = new Mower(1, 1, Direction.WEST);
+		mower.advance();
+		assertEquals(0, mower.getPosition().getX());
+		assertEquals(1, mower.getPosition().getY());
+		assertEquals(Direction.WEST, mower.getPosition().getDirection());
 	}
 }
