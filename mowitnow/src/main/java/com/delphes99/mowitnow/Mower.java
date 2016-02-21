@@ -2,7 +2,7 @@ package com.delphes99.mowitnow;
 
 import com.delphes99.mowitnow.Exception.MowerIllegalPositionException;
 
-public class Mower {
+public class Mower implements IMower {
 	private Garden garden;
 	private MowerPosition position;
 
@@ -21,14 +21,17 @@ public class Mower {
 		return position;
 	}
 
+	@Override
 	public void turnLeft() {
 		position.setDirection(position.getDirection().getLeft());
 	}
 
+	@Override
 	public void turnRight() {
 		position.setDirection(position.getDirection().getRight());
 	}
 
+	@Override
 	public void advance() {
 		Coordinate newCoodinates = estimateNewCoorinates();
 

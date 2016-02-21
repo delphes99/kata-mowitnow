@@ -1,6 +1,6 @@
 package com.delphes99.mowitnow.action;
 
-import com.delphes99.mowitnow.Mower;
+import com.delphes99.mowitnow.IMower;
 
 /**
  * Mower can programmatically execute differents actions.
@@ -8,5 +8,5 @@ import com.delphes99.mowitnow.Mower;
  * @author Delphes
  */
 public interface IMowerAction {
-	public void execute(Mower mower);
+	public void execute(IMower mower);
 }
