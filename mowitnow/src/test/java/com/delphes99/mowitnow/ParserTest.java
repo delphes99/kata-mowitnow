@@ -53,7 +53,7 @@ public class ParserTest {
 	/***************************** Mower *****************************/
 	@Test(expected = ParserException.class)
 	public void should_throw_exception_when_reading_invalid_mower_definition() throws Exception {
-		IMower mower = defaultParser.parseMower("aaaaa", new Garden(5, 5));
+		defaultParser.parseMower("aaaaa", new Garden(5, 5));
 	}
 
 	@Test

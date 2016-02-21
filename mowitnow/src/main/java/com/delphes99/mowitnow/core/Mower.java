@@ -88,9 +88,10 @@ public class Mower implements IMower {
 	@Override
 	public String toString() {
 		Coordinate coordinates = position.getCoordinates();
-		return coordinates.getX() + " " + coordinates.getX() + " " + position.getDirection().toString();
+		return coordinates.getX() + " " + coordinates.getY() + " " + position.getDirection().toString();
 	}
 
+	@Override
 	public MowerPosition getPosition() {
 		return position;
 	}
