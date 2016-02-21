@@ -1,12 +1,20 @@
 package com.delphes99.mowitnow;
 
+import com.delphes99.mowitnow.Exception.MowerIllegalPositionException;
+
 public class Mower {
 	private Garden garden;
 	private MowerPosition position;
 
-	public Mower(Garden garden, int x, int y, Direction direction) {
+	public Mower(Garden garden, int x, int y, Direction direction) throws MowerIllegalPositionException {
+		MowerPosition mowerPosition = new MowerPosition(x, y, direction);
+
+		if (!garden.isCoordinatesIntoGarden(mowerPosition.getCoordinates())) {
+			throw new MowerIllegalPositionException("Mower is not into the garden");
+		}
+
 		this.garden = garden;
-		this.position = new MowerPosition(x, y, direction);
+		this.position = mowerPosition;
 	}
 
 	public MowerPosition getPosition() {

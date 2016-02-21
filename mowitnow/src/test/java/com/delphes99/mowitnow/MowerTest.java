@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import com.delphes99.mowitnow.Exception.GardenDimensionException;
+import com.delphes99.mowitnow.Exception.MowerIllegalPositionException;
 
 public class MowerTest {
 
@@ -31,6 +32,27 @@ public class MowerTest {
 		assertEquals(0, mower.getPosition().getCoordinates().getX());
 		assertEquals(1, mower.getPosition().getCoordinates().getY());
 		assertEquals(Direction.NORTH, mower.getPosition().getDirection());
+	}
+
+	/* Out of garden */
+	@Test(expected = MowerIllegalPositionException.class)
+	public void should_throw_exception_when_mower_out_of_bound_north() throws Exception {
+		new Mower(DEFAULT_GARDEN, 0, 6, Direction.NORTH);
+	}
+
+	@Test(expected = MowerIllegalPositionException.class)
+	public void should_throw_exception_when_mower_out_of_bound_east() throws Exception {
+		new Mower(DEFAULT_GARDEN, 6, 0, Direction.NORTH);
+	}
+
+	@Test(expected = MowerIllegalPositionException.class)
+	public void should_throw_exception_when_mower_out_of_bound_south() throws Exception {
+		new Mower(DEFAULT_GARDEN, 0, -1, Direction.NORTH);
+	}
+
+	@Test(expected = MowerIllegalPositionException.class)
+	public void should_throw_exception_when_mower_out_of_bound_west() throws Exception {
+		new Mower(DEFAULT_GARDEN, -1, 0, Direction.NORTH);
 	}
 
 	/* Turn left */
