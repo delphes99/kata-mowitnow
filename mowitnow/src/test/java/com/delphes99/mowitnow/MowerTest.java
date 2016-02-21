@@ -9,7 +9,6 @@ import com.delphes99.mowitnow.Exception.GardenDimensionException;
 import com.delphes99.mowitnow.Exception.MowerIllegalPositionException;
 
 public class MowerTest {
-
 	private static final Garden DEFAULT_GARDEN;
 
 	static {

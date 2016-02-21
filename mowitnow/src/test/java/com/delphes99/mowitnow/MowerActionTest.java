@@ -65,6 +65,7 @@ public class MowerActionTest {
 		assertTrue(mower.isAdvancing);
 	}
 
+	/* Mower Mock */
 	private class MockMower implements IMower {
 		boolean isTurningLeft = false;
 		boolean isTurningRight = false;

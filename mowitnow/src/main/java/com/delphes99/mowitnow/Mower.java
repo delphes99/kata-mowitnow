@@ -1,10 +1,15 @@
 package com.delphes99.mowitnow;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import com.delphes99.mowitnow.Exception.MowerIllegalPositionException;
+import com.delphes99.mowitnow.action.IMowerAction;
 
 public class Mower implements IMower {
 	private Garden garden;
 	private MowerPosition position;
+	private Queue<IMowerAction> queueAction;
 
 	public Mower(Garden garden, int x, int y, Direction direction) throws MowerIllegalPositionException {
 		MowerPosition mowerPosition = new MowerPosition(x, y, direction);
@@ -15,10 +20,7 @@ public class Mower implements IMower {
 
 		this.garden = garden;
 		this.position = mowerPosition;
-	}
-
-	public MowerPosition getPosition() {
-		return position;
+		this.queueAction = new LinkedList<IMowerAction>();
 	}
 
 	@Override
@@ -52,5 +54,30 @@ public class Mower implements IMower {
 		y += direction.getVerticalDisplacement();
 
 		return new Coordinate(x, y);
+	}
+
+	public void addAction(IMowerAction action) {
+		this.queueAction.add(action);
+	}
+
+	public int getActionQueueSize() {
+		return this.queueAction.size();
+	}
+
+	public void runOne() {
+		IMowerAction action = this.queueAction.poll();
+		if (action != null) {
+			action.execute(this);
+		}
+	}
+
+	public void runAll() {
+		while (!this.queueAction.isEmpty()) {
+			this.runOne();
+		}
+	}
+
+	public MowerPosition getPosition() {
+		return position;
 	}
 }
