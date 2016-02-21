@@ -9,8 +9,8 @@ public class MowerPositionTest {
 	public void should_get_attribute_when_new_position() throws Exception {
 		MowerPosition position = new MowerPosition(0, 1, Direction.NORTH);
 
-		assertEquals(0, position.getX());
-		assertEquals(1, position.getY());
+		assertEquals(0, position.getCoordinates().getX());
+		assertEquals(1, position.getCoordinates().getY());
 		assertEquals(Direction.NORTH, position.getDirection());
 	}
 }

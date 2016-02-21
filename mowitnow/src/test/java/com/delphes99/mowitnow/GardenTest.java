@@ -9,9 +9,9 @@ import com.delphes99.mowitnow.Exception.GardenDimensionException;
 public class GardenTest {
 	@Test
 	public void should_match_dimensions_when_new_jardin() throws GardenDimensionException {
-		Garden jardin = new Garden(3, 4);
-		assertEquals(jardin.getWidth(), 3);
-		assertEquals(jardin.getHeight(), 4);
+		Garden garden = new Garden(3, 4);
+		assertEquals(garden.getWidth(), 3);
+		assertEquals(garden.getHeight(), 4);
 	}
 
 	@Test(expected = GardenDimensionException.class)
@@ -26,14 +26,14 @@ public class GardenTest {
 
 	@Test
 	public void should_not_have_tondeuse_when_new_jardin() throws GardenDimensionException {
-		Garden jardin = new Garden(4, 4);
-		assertEquals(jardin.getMowerQueue().size(), 0);
+		Garden garden = new Garden(4, 4);
+		assertEquals(garden.getMowerQueue().size(), 0);
 	}
 
 	@Test
 	public void should_1_tondeuse_when_adding_tondeuse() throws GardenDimensionException {
-		Garden jardin = new Garden(4, 4);
-		jardin.addMower(new Mower(0, 0, Direction.NORTH));
-		assertEquals(jardin.getMowerQueue().size(), 1);
+		Garden garden = new Garden(4, 4);
+		garden.addMower(new Mower(garden, 0, 0, Direction.NORTH));
+		assertEquals(garden.getMowerQueue().size(), 1);
 	}
 }

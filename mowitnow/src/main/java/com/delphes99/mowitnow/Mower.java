@@ -1,9 +1,11 @@
 package com.delphes99.mowitnow;
 
 public class Mower {
+	private Garden garden;
 	private MowerPosition position;
 
-	public Mower(int x, int y, Direction direction) {
+	public Mower(Garden garden, int x, int y, Direction direction) {
+		this.garden = garden;
 		this.position = new MowerPosition(x, y, direction);
 	}
 
@@ -20,13 +22,24 @@ public class Mower {
 	}
 
 	public void advance() {
-		int x = position.getX();
-		int y = position.getY();
+		Coordinate newCoodinates = estimateNewCoorinates();
+
+		if (garden.isCoordinatesIntoGarden(newCoodinates)) {
+			Coordinate coordinates = position.getCoordinates();
+			coordinates.setX(newCoodinates.getX());
+			coordinates.setY(newCoodinates.getY());
+		}
+	}
+
+	private Coordinate estimateNewCoorinates() {
+		Coordinate coordinates = position.getCoordinates();
+		int x = coordinates.getX();
+		int y = coordinates.getY();
 		Direction direction = position.getDirection();
+
 		x += direction.getHorizontalDisplacement();
 		y += direction.getVerticalDisplacement();
 
-		position.setX(x);
-		position.setY(y);
+		return new Coordinate(x, y);
 	}
 }
